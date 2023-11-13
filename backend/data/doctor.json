@@ -1,0 +1,562 @@
+[
+    {
+        "fullname": "Nguyễn Văn A",
+        "title": "ThS",
+        "gender": "Nam",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Trần Thị B",
+        "title": "CKI",
+        "gender": "Nữ",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-09",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-10",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-11",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-12",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Phạm Văn C",
+        "title": "CKII",
+        "gender": "Nam",
+        "specialist": "Khoa Ngoại",
+        "schedule": [
+            {
+                "date": "2023-11-13",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-14",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-15",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-16",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Lê Thị D",
+        "title": "ThS",
+        "gender": "Nữ",
+        "specialist": "Khoa Nhi",
+        "schedule": [
+            {
+                "date": "2023-11-17",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-18",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-19",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-20",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Hoàng Văn E",
+        "title": "CKI",
+        "gender": "Nam",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Nguyễn Thị F",
+        "title": "CKII",
+        "gender": "Nữ",
+        "specialist": "Khoa Ngoại",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Trần Văn G",
+        "title": "ThS",
+        "gender": "Nam",
+        "specialist": "Khoa Nhi",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Phạm Thị H",
+        "title": "CKI",
+        "gender": "Nữ",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Lê Văn I",
+        "title": "CKII",
+        "gender": "Nam",
+        "specialist": "Khoa Ngoại",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Hoàng Thị J",
+        "title": "ThS",
+        "gender": "Nữ",
+        "specialist": "Khoa Nhi",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Nguyễn Văn K",
+        "title": "CKI",
+        "gender": "Nam",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Trần Thị L",
+        "title": "CKII",
+        "gender": "Nữ",
+        "specialist": "Khoa Ngoại",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Phạm Văn M",
+        "title": "ThS",
+        "gender": "Nam",
+        "specialist": "Khoa Nhi",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Lê Thị N",
+        "title": "CKI",
+        "gender": "Nữ",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Hoàng Văn O",
+        "title": "CKII",
+        "gender": "Nam",
+        "specialist": "Khoa Ngoại",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Nguyễn Thị P",
+        "title": "ThS",
+        "gender": "Nữ",
+        "specialist": "Khoa Nhi",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Trần Văn Q",
+        "title": "CKI",
+        "gender": "Nam",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Phạm Thị R",
+        "title": "CKII",
+        "gender": "Nữ",
+        "specialist": "Khoa Ngoại",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Lê Văn S",
+        "title": "ThS",
+        "gender": "Nam",
+        "specialist": "Khoa Nhi",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    },
+    {
+        "fullname": "Hoàng Thị T",
+        "title": "CKI",
+        "gender": "Nữ",
+        "specialist": "Khoa Nội",
+        "schedule": [
+            {
+                "date": "2023-11-05",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-06",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-07",
+                "countam": 20,
+                "countpm": 20
+            },
+            {
+                "date": "2023-11-08",
+                "countam": 20,
+                "countpm": 20
+            }
+        ]
+    }
+]
