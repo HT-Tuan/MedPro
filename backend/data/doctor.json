@@ -7,23 +7,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             }
         ]
     },
@@ -35,23 +31,19 @@
         "schedule": [
             {
                 "date": "2023-11-09",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-10",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-11",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-12",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             }
         ]
     },
@@ -63,23 +55,19 @@
         "schedule": [
             {
                 "date": "2023-11-13",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-14",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-15",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-16",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             }
         ]
     },
@@ -91,23 +79,19 @@
         "schedule": [
             {
                 "date": "2023-11-17",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-18",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-19",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-20",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             }
         ]
     },
@@ -119,23 +103,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             }
         ]
     },
@@ -147,23 +127,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             }
         ]
     },
@@ -175,23 +151,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             }
         ]
     },
@@ -203,23 +175,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             }
         ]
     },
@@ -231,23 +199,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             }
         ]
     },
@@ -259,23 +223,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             }
         ]
     },
@@ -287,23 +247,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             }
         ]
     },
@@ -315,23 +271,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             }
         ]
     },
@@ -343,23 +295,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             }
         ]
     },
@@ -371,23 +319,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             }
         ]
     },
@@ -399,23 +343,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             }
         ]
     },
@@ -427,23 +367,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             }
         ]
     },
@@ -455,23 +391,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             }
         ]
     },
@@ -483,23 +415,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 10"
             }
         ]
     },
@@ -511,23 +439,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 12"
             }
         ]
     },
@@ -539,23 +463,19 @@
         "schedule": [
             {
                 "date": "2023-11-05",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-06",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-07",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             },
             {
                 "date": "2023-11-08",
-                "countam": 20,
-                "countpm": 20
+                "clinic": "Phòng 11"
             }
         ]
     }

@@ -50,6 +50,11 @@ const doctorSchema = new mongoose.Schema({
             type: Number,
             require: [true, 'Please enter count pm'],
             default: 0.0
+        },
+        clinic: {
+            type: String,
+            required: [true, 'Please enter clinic for this schedule.'],
+            maxLength: [10, 'Your clinic cannot exceed 10 characters']
         }
     }]
 })

@@ -1,12 +1,12 @@
 const Record = require('../models/record');
+const User = require('../models/user');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 
 // Create new record => /api/medpro/record/new
 exports.newRecord = catchAsyncErrors(async (req, res, next) => {
     const record = await Record.create(req.body);
-    req.user.record = record._id;
-    await req.user.save();
+    await User.findOneAndUpdate({ _id: req.user.id }, { $push: { record: record._id } } )
     res.status(201).json({
         success: true,
         record
@@ -15,11 +15,32 @@ exports.newRecord = catchAsyncErrors(async (req, res, next) => {
 
 // Get all records => /api/medpro/records
 exports.getRecords = catchAsyncErrors(async (req, res, next) => {
+    // Pagination
+    const resPerPage = 4;
+    const currentPage = Number(req.query.page) || 1;
+    const skip = resPerPage * (currentPage - 1);
+    //
+    const keyword = req.query.keyword || '';
+    
     const user = await req.user.populate('record');
-    const records = user.record;
+    //
+    const recordTemp = user.record.filter(record => {
+        return record.fullname.toLowerCase().includes(keyword.toLowerCase());
+    })
+    const recordCount = recordTemp.length;
+    const records = recordTemp.slice(skip, skip + resPerPage).map(record => ({
+        _id: record._id,
+        fullname: record.fullname,
+        phone: record.phone,
+        birthday: record.birthday,
+        address: record.address
+    }));
+    //
     res.status(200).json({
         success: true,
-        records
+        records,
+        recordCount,
+        count: records.length
     })
 })
 

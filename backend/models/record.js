@@ -36,8 +36,7 @@ const recordSchema = new mongoose.Schema({
         require: [true, 'Please enter your phone'],
         maxLength: [10, 'Your identificationcard must have exactly 10 characters'],
         minLength: [10, 'Your identificationcard must have exactly 10 characters']
-    }
-    ,
+    },
     address: {
         type: String,
         require: [true, 'Please enter your address']

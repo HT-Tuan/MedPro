@@ -25,7 +25,7 @@ const ticketSchema = new mongoose.Schema({
     clinic: {
         type: String,
         required: [true, 'Please enter clinic for this ticket.'],
-        maxLength: [3, 'Your clinic cannot exceed 3 characters']
+        maxLength: [10, 'Your clinic cannot exceed 10 characters']
     },
     specialist: {
         type: String,
@@ -63,6 +63,33 @@ const ticketSchema = new mongoose.Schema({
         },
         default: 'wait'
     },
+    fullname: {
+        type: String,
+        required: [true, 'Please enter your fullname'],
+        maxLength: [30, 'Your fullname cannot exceed 30 characters']
+    },
+    birthday: {
+        type: Date,
+        require: [true, 'Please enter your birthday']
+    },
+    gender: {
+        type: String,
+        required: [true, 'Please select gender for this doctor'],
+        enum: {
+            values: ['Nam', 'Nữ', 'Khác'],
+            message: 'Please select correct title for doctor'
+        }
+    },
+    healthinsurance: {
+        type: String,
+        require: [true, 'Please enter your health insurance'],
+        maxLength: [15, 'Your identificationcard must have exactly 15 characters'],
+        minLength: [15, 'Your identificationcard must have exactly 15 characters']
+    },
+    address: {
+        type: String,
+        require: [true, 'Please enter your address']
+    }
 })
 
 module.exports = mongoose.model('Ticket', ticketSchema);
