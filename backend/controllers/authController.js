@@ -4,6 +4,8 @@ const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
+const path = require('path');
+const pug = require('pug');
 
 // Register a user => /api/medpro/register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
@@ -50,70 +52,9 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     const resetVerifycode = user.getVerifyCode();
 
     await user.save({ validateBeforeSave: false });
-    
-    const message =
-    `<!DOCTYPE html>
-    <html>
-    <head>
-        <title>Verification Code</title>
-    </head>
-
-    <body>
-        <table>
-            <tr>
-                <table bgcolor="#4184F3" width="100%" border="0" cellspacing="0" cellpadding="0"
-                    style="min-width:332px;max-width:600px;border:1px solid #e0e0e0;border-bottom:0;border-top-left-radius:3px;border-top-right-radius:3px">
-                    <tr>
-                        <td height="72px" colspan="3"></td>
-                    </tr>
-                    <tr>
-                        <td width="32px"></td>
-                        <td
-                            style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:24px;color:#ffffff;line-height:1.25">
-                            Verification Code</td>
-                        <td width="32px"></td>
-                    </tr>
-                    <tr>
-                        <td height="18px" colspan="3"></td>
-                    </tr>
-                </table>
-            </tr>
-
-            <tr>
-                <td>
-                    <table bgcolor="#FAFAFA" width="100%" border="0" cellspacing="0" cellpadding="0"
-                        style="min-width:332px;max-width:600px;border:1px solid #f0f0f0;border-bottom:1px solid #c0c0c0;border-top:0;border-bottom-left-radius:3px;border-bottom-right-radius:3px">
-                        <tr height="16px">
-                            <td width="32px" rowspan="3"></td>
-                            <td></td>
-                            <td width="32px" rowspan="3"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Hi <b> ${user.fullname} </b>!</p>
-                                <p>The verification code you need to access your Medpro Account (
-                                    <span style="color: #659cef;"> ${user.email} </span>
-                                    ) is:
-                                </p>
-                                <div style="text-align: center;">
-                                    <strong style="font-size: 24px;font-weight: bold;">${resetVerifycode}</strong>
-                                </div>
-                                <p>If you don't request this code, someone may be trying to access your Medpro Account (
-                                    <span style="color: #659cef;"> ${user.email} </span>
-                                    ).
-                                    <strong>Please don't forward or give this code to anyone.</strong>
-                                </p>
-                                <p>Sincerely!</p>
-                                <p>Medpro account group</p>
-                            </td>
-                        </tr>
-                        <tr height="32px"></tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </body>
-    </html>`
+    const templatePath = path.join(__dirname, '../templates/VerifyCode.pug');
+    const compiledFunction = pug.compileFile(templatePath);
+    const message = compiledFunction({user, resetVerifycode});
 
     try {
         await sendEmail({
