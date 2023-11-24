@@ -29,13 +29,7 @@ exports.getRecords = catchAsyncErrors(async (req, res, next) => {
         return record.fullname.toLowerCase().includes(keyword.toLowerCase());
     })
     const filteredRecordsCount = recordTemp.length;
-    const records = recordTemp.slice(skip, skip + resPerPage).map(record => ({
-        _id: record._id,
-        fullname: record.fullname,
-        phone: record.phone,
-        birthday: record.birthday,
-        address: record.address
-    }));
+    const records = recordTemp.slice(skip, skip + resPerPage);
     //
     res.status(200).json({
         success: true,
@@ -43,21 +37,6 @@ exports.getRecords = catchAsyncErrors(async (req, res, next) => {
         recordCount,
         resPerPage,
         filteredRecordsCount
-    })
-})
-
-// Get record details => /api/medpro/record/:id
-exports.getRecord = catchAsyncErrors(async (req, res, next) => {
-    const record = await Record.findById(req.params.id);
-    if (!record) {
-        return next(new ErrorHandler('Record not found', 404));
-    }
-    if (!req.user.record.includes(req.params.id)) {
-        return next(new ErrorHandler('You are not authorized to access this record', 401));
-    }
-    res.status(200).json({
-        success: true,
-        record
     })
 })
 

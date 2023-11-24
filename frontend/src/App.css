@@ -245,6 +245,42 @@ TextField {
 .tableRowList{
   background-color: #3d88f4;
 }
+
+.recordList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.font-weight-bold {
+  align-self: flex-end;
+}
+
+.paperList .MuiTableContainer-root {
+  border-radius: 5px;
+}
+
+.tableRowList .MuiTableCell-root {
+  color: white;
+}
+
+.MuiDialogTitle-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiDialogTitle-root .MuiIconButton-root {
+  float: right;
+}
+
+.MuiTextField-root {
+  margin-left: auto;
+}
+
+.flex-div {
+  flex: 1;
+}
 /* Footer */
 footer {
   margin-top: 8rem;
