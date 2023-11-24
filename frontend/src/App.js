@@ -7,6 +7,7 @@ import Register from './components/user/Register';
 import ForgotPassword from './components/user/ForgotPassword';
 import UpdatePassword from './components/user/UpdatePassword';
 import ProtectedRoute from './route/ProtectedRoute';
+import List from './components/records/List';
 import Page404 from './utils/Page404';
 import Page500 from './utils/Page500';
 import { Fragment } from 'react';
@@ -22,11 +23,12 @@ function App() {
 }
 function AppContent() {
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === '/' || location.pathname.startsWith('/search');
+  const isRecord = location.pathname.startsWith('/me/records');
 
   return (
     <Fragment>
-      <Header isHome={isHome} />
+      <Header isHome={isHome} isRecord={isRecord} />
       <div className="container container-fluid">
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -45,6 +47,16 @@ function AppContent() {
           <Route path="/update-password" element={
             <ProtectedRoute>
               <UpdatePassword />
+            </ProtectedRoute>
+          } />
+          <Route path="/me/records" element={
+            <ProtectedRoute>
+              <List />
+            </ProtectedRoute>
+          } />
+          <Route path="/me/records/:keyword" element={
+            <ProtectedRoute>
+              <List />
             </ProtectedRoute>
           } />
           <Route path='/error' element={<Page500 />} />

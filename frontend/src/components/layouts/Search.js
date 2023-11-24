@@ -1,15 +1,23 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-const Search = ({ navigate }) => {
+const Search = ({ navigate, isRecord }) => {
 
   const [keyword, setKeyword] = useState('')
 
   const searchHandler = (e) => {
     e.preventDefault()
-    if (keyword.trim()) {
-      navigate(`/search/${keyword}`);
+    if (!isRecord) {
+      if (keyword.trim()) {
+        navigate(`/search/${keyword}`);
+      } else {
+        navigate('/');
+      }
     } else {
-      navigate('/');
+      if (keyword.trim()) {
+        navigate(`/me/records/${keyword}`);
+      } else {
+        navigate('/me/records');
+      }
     }
   }
 
@@ -20,7 +28,7 @@ const Search = ({ navigate }) => {
           type="text"
           id="search_field"
           className="form-control"
-          placeholder="Nhập tên bác sĩ ..."
+          placeholder={isRecord ? "Nhập tên bệnh nhân ..." : "Nhập tên bác sĩ ..."}
           onChange={(e) => setKeyword(e.target.value)}
         />
         <div className="input-group-append">

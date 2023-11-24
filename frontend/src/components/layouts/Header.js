@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "../../App.css";
 import { logout } from '../../actions/userAction';
-const Header = ({ isHome }) => {
+const Header = ({ isHome, isRecord = false }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('user'));
@@ -31,11 +31,12 @@ const Header = ({ isHome }) => {
         </div>
 
         <div className="col-12 col-md-6 mt-2 mt-md-0">
-          {isHome && <Search navigate={navigate} />}
+          {isHome && !isRecord && <Search navigate={navigate} isRecord={false} />}
+          {!isHome && isRecord && <Search navigate={navigate} isRecord={true} />}
         </div>
 
-        {isHome && <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-          <div className="ml-4 dropdown d-inline">
+        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
+          {(isHome || isRecord) && <div className="ml-4 dropdown d-inline">
             <Link to="#!" className="btn dropdown-toggle text-white mr-4" type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <figure className="avatar avatar-nav">
                 <img
@@ -49,15 +50,15 @@ const Header = ({ isHome }) => {
 
             <div className="dropdown-menu mt-3" aria-labelledby="dropDownMenuButton">
               <Link className="dropdown-item" to="/update-password">Đổi mật khẩu</Link>
-              <Link className="dropdown-item" to="#">Hồ sơ</Link>
+              <Link className="dropdown-item" to="/me/records">Hồ sơ</Link>
               <Link className="dropdown-item" to="#">Phiếu khám</Link>
               <Link className="dropdown-item" to="#">Kết quả khám</Link>
               <Link className="dropdown-item text-danger" onClick={logoutHandler}>
                 Đăng xuất
               </Link>
             </div>
-          </div>
-        </div>}
+          </div>}
+        </div>
       </nav>
       <ToastContainer />
     </Fragment>

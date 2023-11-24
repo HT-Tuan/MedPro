@@ -16,7 +16,7 @@ exports.newRecord = catchAsyncErrors(async (req, res, next) => {
 // Get all records => /api/medpro/records
 exports.getRecords = catchAsyncErrors(async (req, res, next) => {
     // Pagination
-    const resPerPage = 4;
+    const resPerPage = 8;
     const currentPage = Number(req.query.page) || 1;
     const skip = resPerPage * (currentPage - 1);
     //
@@ -24,10 +24,11 @@ exports.getRecords = catchAsyncErrors(async (req, res, next) => {
     
     const user = await req.user.populate('record');
     //
+    const recordCount = user.record.length;
     const recordTemp = user.record.filter(record => {
         return record.fullname.toLowerCase().includes(keyword.toLowerCase());
     })
-    const recordCount = recordTemp.length;
+    const filteredRecordsCount = recordTemp.length;
     const records = recordTemp.slice(skip, skip + resPerPage).map(record => ({
         _id: record._id,
         fullname: record.fullname,
@@ -40,7 +41,8 @@ exports.getRecords = catchAsyncErrors(async (req, res, next) => {
         success: true,
         records,
         recordCount,
-        count: records.length
+        resPerPage,
+        filteredRecordsCount
     })
 })
 
