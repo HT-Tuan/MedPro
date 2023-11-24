@@ -26,13 +26,15 @@ const Home = () => {
 
   useEffect(() => {
     if (error) {
-      toast.error(error.message, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-      if(error.status === 401) {
+      if (error.status === 401) {
         localStorage.removeItem('user');
-        navigate('/login', { replace: true })
+        navigate('/login')
+        window.location.reload();
+        return;
       }
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return;
     }
     dispatch(getDoctors(keyword, currentPage))

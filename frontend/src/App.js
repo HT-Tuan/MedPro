@@ -4,7 +4,11 @@ import Footer from './components/layouts/Footer';
 import Home from './components/Home';
 import Login from './components/user/Login';
 import Register from './components/user/Register';
+import ForgotPassword from './components/user/ForgotPassword';
+import UpdatePassword from './components/user/UpdatePassword';
 import ProtectedRoute from './route/ProtectedRoute';
+import Page404 from './utils/Page404';
+import Page500 from './utils/Page500';
 import { Fragment } from 'react';
 
 function App() {
@@ -18,15 +22,16 @@ function App() {
 }
 function AppContent() {
   const location = useLocation();
-  const isAuth = location.pathname === '/login' || location.pathname === '/register';
+  const isHome = location.pathname === '/';
 
   return (
     <Fragment>
-      <Header isAuth={isAuth} />
+      <Header isHome={isHome} />
       <div className="container container-fluid">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/" element={
             <ProtectedRoute>
               <Home />
@@ -37,6 +42,13 @@ function AppContent() {
               <Home />
             </ProtectedRoute>
           } />
+          <Route path="/update-password" element={
+            <ProtectedRoute>
+              <UpdatePassword />
+            </ProtectedRoute>
+          } />
+          <Route path='/error' element={<Page500 />} />
+          <Route path='/*' element={<Page404 />} />
         </Routes>
       </div>
       <Footer />

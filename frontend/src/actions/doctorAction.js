@@ -13,11 +13,11 @@ export const getDoctors = (keyword = '', currentPage = 0) => async (dispatch) =>
     dispatch({ type: ALL_DOCTOR_REQUEST });
     currentPage += 1;
 
-    const { data } = await axios.get(`/api/medpro/doctors?keyword=${keyword}&page=${currentPage}`);
+    const response = await axios.get(`/api/medpro/doctors?keyword=${keyword}&page=${currentPage}`);
 
     dispatch({
       type: ALL_DOCTOR_SUCCESS,
-      payload: data
+      payload: response.data
     })
 
   } catch (error) {

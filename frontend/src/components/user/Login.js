@@ -61,7 +61,7 @@ const Login = () => {
 
     if (error) {
       toast.error(error, {
-        position: toast.POSITION.BOTTOM_CENTER,
+        position: toast.POSITION.TOP_RIGHT,
       });
       dispatch(clearErrors());
     }
@@ -70,6 +70,23 @@ const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (!emailRegex.test(email)) {
+      setEmailError(true);
+      if(email === '') {
+        toast.error("Vui lòng nhập địa chỉ email", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+      return;
+    } else {
+      setEmailError(false);
+    }
+    if (password === '') {
+      toast.error("Vui lòng nhập mật khẩu", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
     dispatch(login(email, password))
   }
 
@@ -91,7 +108,6 @@ const Login = () => {
                   label='Email'
                   placeholder='Nhập địa chỉ email'
                   fullWidth
-                  required
                   value={email}
                   className='mb-3'
                   onChange={handleEmailChange}
@@ -103,7 +119,6 @@ const Login = () => {
                   placeholder='Nhập mật khẩu'
                   type={showPassword ? 'text' : 'password'}
                   fullWidth
-                  required
                   value={password}
                   onChange={handlePasswordChange}
                   InputProps={passwordEntered ? {
@@ -117,8 +132,8 @@ const Login = () => {
                 />
                 <Button type='submit' id='login_btn' onClick={submitHandler} fullWidth className='mb-3'>Đăng nhập</Button>
                 <Typography>
-                  <Link to="/password/forgot">
-                    Quên mật khẩu ?
+                  <Link to="/forgot-password">
+                    Quên mật khẩu?
                   </Link>
                 </Typography>
                 <Typography className='mb-3 typographyColor'> Bạn chưa có tài khoản?{" "}

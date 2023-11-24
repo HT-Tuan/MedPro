@@ -57,7 +57,7 @@ const Register = () => {
 
     if (error) {
       toast.error(error, {
-        position: toast.POSITION.BOTTOM_CENTER,
+        position: toast.POSITION.TOP_RIGHT,
       });
       dispatch(clearErrors());
     }
@@ -67,6 +67,12 @@ const Register = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (fullname === '' || email === '' || password === '' || gender === '' || birthday === '') {
+      toast.error("Vui lòng nhập đầy đủ thông tin", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
     if (!passwordRegex.test(password)) {
       setPasswordError(true);
       return;
@@ -97,6 +103,8 @@ const Register = () => {
             <Grid align='center'>
               <Avatar className='avatar'><AccountCircle /></Avatar>
               <p className='text_login'>ĐĂNG KÝ</p>
+              <p className='required'>* Bắt buộc</p>
+
             </Grid>
             <TextField
               label='Họ và tên'

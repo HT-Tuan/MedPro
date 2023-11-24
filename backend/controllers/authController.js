@@ -97,6 +97,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 //Update password => /api/medpro/password/update
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.user.id).select('+password');
+    console.log(user);
     // Check previous user password
     const isMatched = await user.comparePassword(req.body.oldPassword);
     if (!isMatched) {
