@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { authReducer, forgotPasswordReducer, verifyCodeReducer, updatePasswordReducer } from './reducers/userReducer';
 import { doctorReducer, scheduledReducer } from './reducers/doctorReducer';
 import { recordReducer } from './reducers/recordReducer';
-import { ticketReducer } from './reducers/ticketReducer';
+import { ticketReducer, ticketsReducer } from './reducers/ticketReducer';
 const reducer = combineReducers({
   // reducers
   auth: authReducer,
@@ -17,6 +17,7 @@ const reducer = combineReducers({
   doctor: doctorReducer,
   scheduled: scheduledReducer,
   ticket: ticketReducer,
+  tickets: ticketsReducer
 });
 
 const middleware = [thunk];

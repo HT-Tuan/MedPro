@@ -9,6 +9,7 @@ import UpdatePassword from './components/user/UpdatePassword';
 import ProtectedRoute from './route/ProtectedRoute';
 import List from './components/records/List';
 import Booking from './components/book/Booking';
+import Ticket from './components/tickets/Ticket';
 import Page404 from './utils/Page404';
 import Page500 from './utils/Page500';
 import { Fragment } from 'react';
@@ -63,6 +64,11 @@ function AppContent() {
           <Route path="/me/records/:keyword" element={
             <ProtectedRoute>
               <List />
+            </ProtectedRoute>
+          } />
+          <Route path="/me/tickets" element={
+            <ProtectedRoute>
+              <Ticket />
             </ProtectedRoute>
           } />
           <Route path='/error' element={<Page500 />} />

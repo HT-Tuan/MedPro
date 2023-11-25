@@ -58,7 +58,7 @@ const ticketSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please select status for this ticket.'],
         enum: {
-            values: ['wait', 'complete', 'cancel'],
+            values: ['wait', 'complete'],
             message: 'Please select correct status for ticket'
         },
         default: 'wait'

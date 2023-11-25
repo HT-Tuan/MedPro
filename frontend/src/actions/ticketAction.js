@@ -3,6 +3,9 @@ import {
   CREATE_TICKET_REQUEST,
   CREATE_TICKET_SUCCESS,
   CREATE_TICKET_FAIL,
+  GET_ALL_TICKET_REQUEST,
+  GET_ALL_TICKET_SUCCESS,
+  GET_ALL_TICKET_FAIL,
   CLEAR_ERRORS,
 } from "../constants/ticketConstant";
 
@@ -34,6 +37,27 @@ export const newTicket = (doctor, record, category, area, date, time) => async (
     });
   }
 }
+
+// Get all tickets
+export const getTickets = (keyword = '', currentPage = 1) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_ALL_TICKET_REQUEST });
+
+    let link = `/api/medpro/tickets?keyword=${keyword}&page=${currentPage}`;
+
+    const { data } = await axios.get(link);
+
+    dispatch({
+      type: GET_ALL_TICKET_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_ALL_TICKET_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
 
 // Clear Errors
 export const clearErrors = () => async (dispatch) => {

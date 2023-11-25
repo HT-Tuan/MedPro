@@ -55,7 +55,7 @@ const Header = ({ isHome, isRecord = false }) => {
             <div className="dropdown-menu mt-3" aria-labelledby="dropDownMenuButton">
               <Link className="dropdown-item" to="/update-password">Đổi mật khẩu</Link>
               <Link className="dropdown-item" to="/me/records">Hồ sơ</Link>
-              <Link className="dropdown-item" to="#">Phiếu khám</Link>
+              <Link className="dropdown-item" to="/me/tickets">Phiếu khám</Link>
               <Link className="dropdown-item text-danger" onClick={logoutHandler}>
                 Đăng xuất
               </Link>
