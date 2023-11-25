@@ -31,10 +31,10 @@ const VerifyCode = ({ email, password, confirmPassword }) => {
     if (message && message.status === 200) {
       toast.success("Đổi mật khẩu thành công", {
         position: toast.POSITION.TOP_RIGHT,
+        onClose: () => {
+          navigate('/');
+        }
       });
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
     }
     if (error) {
       toast.error(error, {

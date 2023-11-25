@@ -1,0 +1,18 @@
+[
+  {
+    "fullname": "Huỳnh Thanh Tuấn",
+    "email": "huynhthanhtuan2206@gmail.com",
+    "password": "$2a$10$BubEzCzxNWS6.9gM4dmOC.jQbsTOICnu4moB1iy0ZpVkX6xx4g7CO",
+    "gender": "Nam",
+    "birthday": "2002-12-12",
+    "record":["655765188a677fa5abb8b6cf", "655765218a677fa5abb8b6d6"]
+  },
+  {
+    "fullname": "Apple",
+    "email": "20110120@student.hcmute.edu.vn",
+    "password": "$2a$10$BubEzCzxNWS6.9gM4dmOC.jQbsTOICnu4moB1iy0ZpVkX6xx4g7CO",
+    "gender": "Nam",
+    "birthday": "2002-12-12",
+    "record": ["6560b7e568023b93bf7b9a23"]
+  }
+]

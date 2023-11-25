@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "655765188a677fa5abb8b6cf",
+    "fullname": "Huỳnh Thanh Tuấn",
+    "birthday": "2002-12-12",
+    "gender": "Nam",
+    "identificationcard": "123456789012",
+    "healthinsurance": "123456789012345",
+    "phone": "1234567890",
+    "address": "Long An"
+  },
+  {
+    "_id": "655765218a677fa5abb8b6d6",
+    "fullname": "Huỳnh Thành Thị",
+    "birthday": "2002-12-10",
+    "gender": "Nữ",
+    "identificationcard": "123456123456",
+    "healthinsurance": "123456789123456",
+    "phone": "1234123456",
+    "address": "TP.HCM"
+  },
+  {
+    "_id": "6560b7e568023b93bf7b9a23",
+    "fullname": "Nguyễn Văn A",
+    "birthday": "2002-12-09",
+    "gender": "Nam",
+    "identificationcard": "123456112233",
+    "healthinsurance": "123456789112233",
+    "phone": "1122333456",
+    "address": "TP.HCM"
+  }
+]

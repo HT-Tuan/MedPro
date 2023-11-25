@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  backend:
+    container_name: Server
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - 5000:5000
+
+  frontend:
+    container_name: Client
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    ports:
+      - 3000:3000
