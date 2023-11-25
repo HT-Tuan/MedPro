@@ -1,4 +1,5 @@
 const Doctor = require('../models/doctor');
+const User = require('../models/user');
 const Record = require('../models/record');
 const Ticket = require('../models/ticket');
 const ErrorHandler = require('../utils/errorHandler');
@@ -90,7 +91,7 @@ exports.getSingleScheduledDoctor = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-// Book ticket => /api/medpro/doctor/book/:id/:record/:date/:time
+// Book ticket => /api/medpro/doctor/book/:doctor/:record/:date/:time
 exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
     const record = await Record.findById(req.params.record);
     if (!record) {
@@ -128,7 +129,7 @@ exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
         serial: serialBooking,
         category: req.body.category,
         area: req.body.area,
-        clinic: req.body.clinic,
+        clinic: scheduled.clinic,
         specialist: doctor.specialist,
         doctor: doctor._id,
         date: scheduled.date,
@@ -141,6 +142,7 @@ exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
         healthinsurance: record.healthinsurance,
         address: record.address
     });
+    await User.findOneAndUpdate({ _id: req.user.id }, { $push: { ticket: ticket._id } })
     // Send ticket via email
     const templatePath = path.join(__dirname, '../templates/BookTicket.pug');
     const compiledFunction = pug.compileFile(templatePath);
