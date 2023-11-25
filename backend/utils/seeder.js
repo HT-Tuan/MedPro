@@ -1,6 +1,7 @@
 const Doctor = require('../models/doctor');
 const Record = require('../models/record');
 const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 const dotvenv = require('dotenv');
 
 const connectDatabase = require('../configs/database');
@@ -28,7 +29,11 @@ const seedDoctors = async () => {
 
         await User.deleteMany();
         console.log('Users are deleted');
-        await User.insertMany(users);
+        const usersTemp = await Promise.all(users.map(async (user) => {
+            user.password = await bcrypt.hash(user.password, 10);
+            return user;
+        }));
+        await User.insertMany(usersTemp);
         console.log('All Users are added.');
         
         process.exit();

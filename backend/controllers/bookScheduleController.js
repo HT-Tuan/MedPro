@@ -136,6 +136,7 @@ exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
         price: doctor.price,
         // status: 'wait' // value default
         fullname: record.fullname,
+        id_patient: record._id,
         birthday: record.birthday,
         gender: record.gender,
         healthinsurance: record.healthinsurance,
@@ -158,7 +159,7 @@ exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(error.message, 500));
     }
     await doctor.save();
-    res.status(200).json({
+        res.status(200).json({
         success: true,
         ticket
     })

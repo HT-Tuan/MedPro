@@ -39,8 +39,9 @@ export const newTicket = (doctor, record, category, area, date, time) => async (
 }
 
 // Get all tickets
-export const getTickets = (keyword = '', currentPage = 1) => async (dispatch) => {
+export const getTickets = (keyword = '', currentPage = 0) => async (dispatch) => {
   try {
+    currentPage = currentPage + 1;
     dispatch({ type: GET_ALL_TICKET_REQUEST });
 
     let link = `/api/medpro/tickets?keyword=${keyword}&page=${currentPage}`;

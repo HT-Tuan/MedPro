@@ -68,6 +68,9 @@ const ticketSchema = new mongoose.Schema({
         required: [true, 'Please enter your fullname'],
         maxLength: [30, 'Your fullname cannot exceed 30 characters']
     },
+    id_patient: {
+        type: String,
+    },
     birthday: {
         type: Date,
         require: [true, 'Please enter your birthday']

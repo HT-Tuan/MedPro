@@ -43,7 +43,7 @@ exports.getRecords = catchAsyncErrors(async (req, res, next) => {
 // Get all ticket => /api/medpro/tickets
 exports.getTickets = catchAsyncErrors(async (req, res, next) => {
     // Pagination
-    const resPerPage = 8;
+    const resPerPage = 4;
     const currentPage = Number(req.query.page) || 1;
     const skip = resPerPage * (currentPage - 1);
     //
