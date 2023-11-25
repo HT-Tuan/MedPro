@@ -3,8 +3,9 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { authReducer, forgotPasswordReducer, verifyCodeReducer, updatePasswordReducer } from './reducers/userReducer';
-import { doctorReducer } from './reducers/doctorReducer';
+import { doctorReducer, scheduledReducer } from './reducers/doctorReducer';
 import { recordReducer } from './reducers/recordReducer';
+import { ticketReducer } from './reducers/ticketReducer';
 const reducer = combineReducers({
   // reducers
   auth: authReducer,
@@ -13,7 +14,9 @@ const reducer = combineReducers({
   updatePassword: updatePasswordReducer,
   //
   record: recordReducer,
-  doctor: doctorReducer
+  doctor: doctorReducer,
+  scheduled: scheduledReducer,
+  ticket: ticketReducer,
 });
 
 const middleware = [thunk];

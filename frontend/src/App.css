@@ -23,7 +23,7 @@ nav {
   margin: 20px auto;
 }
 
-.text_login{
+.text_login {
   margin-top: 3%;
   font-size: 20px;
   font-weight: bold;
@@ -31,14 +31,14 @@ nav {
   color: #3d88f4;
   font-family: calibri
 }
-.titleRecord{
+
+.titleRecord {
   margin-top: 1%;
   margin-bottom: 0;
   font-size: 25px;
   font-weight: bold;
   color: rgb(107, 148, 198);
   font-family: calibri
-
 }
 
 .avatar {
@@ -57,7 +57,9 @@ nav {
 
 #ticket_btn,
 #login_btn,
-#select_btn {
+#select_btn,
+.button-back,
+.button-next {
   background-color: #3d88f4;
   color: white;
   padding: 0.4rem 1.8rem;
@@ -228,6 +230,7 @@ TextField {
 .img {
   width: 100%;
 }
+
 .dropdown-item.text-danger:active {
   background-color: rgb(232, 64, 64);
 }
@@ -239,10 +242,11 @@ TextField {
 }
 
 
-.paperList{
+.paperList {
   margin: 1%;
 }
-.tableRowList{
+
+.tableRowList {
   background-color: #3d88f4;
 }
 
@@ -281,6 +285,26 @@ TextField {
 .flex-div {
   flex: 1;
 }
+
+.highlighted-day {
+  margin-right: 3px;
+  border-radius: 50%;
+  background-color: #7cafee;
+  width: 35px;
+  height: 35px;
+}
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+}
+.button-back{
+  align-self: flex-start;
+}
+.button-next{
+  align-self: flex-end;
+}
 /* Footer */
 footer {
   margin-top: 8rem;
@@ -288,3 +312,4 @@ footer {
   bottom: 0;
   width: 100%;
 }
+

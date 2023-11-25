@@ -8,6 +8,6 @@ Router.route('/doctors').get(isAuthenticatedUser, getDoctors);
 Router.route('/doctor/scheduled/:id').get(isAuthenticatedUser, getScheduledDoctors);
 Router.route('/doctor/scheduled/:id/:date').get(isAuthenticatedUser, getSingleScheduledDoctor);
 
-Router.route('/doctor/book/:doctor/:record/:date/:time').post(isAuthenticatedUser, bookTicket);
+Router.route('/doctor/book/:doctor/:record/:time').post(isAuthenticatedUser, bookTicket);
 
 module.exports = Router;

@@ -81,8 +81,7 @@ exports.getSingleScheduledDoctor = catchAsyncErrors(async (req, res, next) => {
     scheduled = {
         _id: scheduled._id,
         countam: scheduled.countam,
-        countpm: scheduled.countpm,
-        clinic: scheduled.clinic
+        countpm: scheduled.countpm
     }
     res.status(200).json({
         success: true,
@@ -91,7 +90,7 @@ exports.getSingleScheduledDoctor = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-// Book ticket => /api/medpro/doctor/book/:doctor/:record/:date/:time
+// Book ticket => /api/medpro/doctor/book/:doctor/:record/:time
 exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
     const record = await Record.findById(req.params.record);
     if (!record) {
@@ -101,7 +100,7 @@ exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
     if (!doctor) {
         return next(new ErrorHandler('Doctor not found', 404));
     }
-    const scheduled = doctor.schedule.find(item => item._id.toString() === req.params.date);
+    const scheduled = doctor.schedule.find(item => item.date.toISOString().slice(0, 10) === req.body.date);
     if (!scheduled) {
         return next(new ErrorHandler('Schedule not found', 404));
     }

@@ -14,9 +14,13 @@ const Header = ({ isHome, isRecord = false }) => {
   const logoutHandler = () => {
     if (window.confirm('Bạn có chắc chắn muốn đăng xuất?') === true) {
       dispatch(logout());
-      toast.success('Đăng xuất thành công');
-      navigate('/login');
-      window.location.reload();
+      toast.success('Đăng xuất thành công', {
+        position: toast.POSITION.TOP_RIGHT,
+        onClose: () => {
+          navigate('/login');
+          window.location.reload();
+        }
+      });
     }
   }
   return (
