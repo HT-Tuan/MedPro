@@ -1,13 +1,20 @@
 version: '3'
 
+#NETWORK
+networks:
+  app-network:
+    driver: bridge
+
 services:
   backend:
     container_name: Server
     build:
       dockerfile: Dockerfile
       context: ./
-    ports:
-      - 5000:5000
+    # ports:
+    #   - 5000:5000
+    networks:
+      - app-network
 
   frontend:
     container_name: Client
@@ -16,3 +23,5 @@ services:
       context: ./frontend
     ports:
       - 3000:3000
+    networks:
+      - app-network
