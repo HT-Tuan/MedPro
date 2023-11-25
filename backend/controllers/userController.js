@@ -40,6 +40,33 @@ exports.getRecords = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
+// Get all ticket => /api/medpro/tickets
+exports.getTickets = catchAsyncErrors(async (req, res, next) => {
+    // Pagination
+    const resPerPage = 8;
+    const currentPage = Number(req.query.page) || 1;
+    const skip = resPerPage * (currentPage - 1);
+    //
+    const keyword = req.query.keyword || 'wait';
+
+    const user = await req.user.populate('ticket');
+    //
+    const ticketCount = user.ticket.length;
+    const ticketTemp = user.ticket.filter(ticket => {
+        return ticket.status.toLowerCase().includes(keyword.toLowerCase());
+    })
+    const filteredTicketsCount = ticketTemp.length;
+    const tickets = ticketTemp.slice(skip, skip + resPerPage);
+    //
+    res.status(200).json({
+        success: true,
+        tickets,
+        ticketCount,
+        resPerPage,
+        filteredTicketsCount
+    })
+})
+
 // Update record details => /api/medpro/record/:id
 exports.updateRecord = catchAsyncErrors(async (req, res, next) => {
     const record = await Record.findById(req.params.id);

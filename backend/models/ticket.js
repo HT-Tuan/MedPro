@@ -18,7 +18,7 @@ const ticketSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please select area for this ticket.'],
         enum: {
-            values: ['A', 'B', 'C'],
+            values: ['A', 'KTC'],
             message: 'Please select correct area for ticket'
         }
     },
