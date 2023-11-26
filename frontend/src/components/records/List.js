@@ -93,6 +93,48 @@ const List = () => {
   }
   const handleDialog = (e) => {
     e.preventDefault()
+    if (fullname === '' || fullname.length > 30) {
+      toast.error("Họ và tên không được quá 30 ký tự", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+    if (birthday === '') {
+      toast.error("Ngày sinh không được để trống", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+    if(gender === ''){
+      toast.error("Giới tính không được để trống", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+    if (identificationcard.length !== 12) {
+      toast.error("Số CCCD phải đúng 12 ký tự", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+    if (healthinsurance.length !== 15) {
+      toast.error("Số thẻ BHYT phải đúng 15 ký tự", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+    if (phone.length !== 10) {
+      toast.error("Số điện thoại phải đúng 10 ký tự", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
+    if (address === '') {
+      toast.error("Địa chỉ không được để trống", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      return;
+    }
     if (isedit === false) {
       dispatch(newRecord(fullname, birthday, gender, identificationcard, healthinsurance, phone, address))
         .then(() => {
