@@ -50,12 +50,13 @@ exports.getScheduledDoctors = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler('Doctor not found', 404));
     }
     const now = new Date();
+    const currentDay = now.getDate();
     const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
     const nextMonth = currentMonth + 1 > 12 ? 1 : currentMonth + 1;
 
     const scheduled = doctor.schedule.filter(item => {
-        return (item.date.getMonth() === currentMonth && item.date.getFullYear() === currentYear) ||
+        return (item.date.getDay() > currentDay && item.date.getMonth() === currentMonth && item.date.getFullYear() === currentYear) ||
             (item.date.getMonth() === nextMonth && item.date.getFullYear() === (nextMonth === 1 ? currentYear + 1 : currentYear));
     }).map(item => ({
         _id: item._id,
@@ -68,27 +69,6 @@ exports.getScheduledDoctors = catchAsyncErrors(async (req, res, next) => {
     })
 })
 
-// Get Single Scheduled Doctor => /api/medpro/doctor/scheduled/:id/:date
-exports.getSingleScheduledDoctor = catchAsyncErrors(async (req, res, next) => {
-    const doctor = await Doctor.findById(req.params.id);
-    if (!doctor) {
-        return next(new ErrorHandler('Doctor not found', 404));
-    }
-    let scheduled = doctor.schedule.find(item => item._id.toString() === req.params.date);
-    if (!scheduled) {
-        return next(new ErrorHandler('Schedule not found', 404));
-    }
-    scheduled = {
-        _id: scheduled._id,
-        countam: scheduled.countam,
-        countpm: scheduled.countpm
-    }
-    res.status(200).json({
-        success: true,
-        doctorId: doctor._id,
-        scheduled
-    })
-})
 
 // Book ticket => /api/medpro/doctor/book/:doctor/:record/:time
 exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
