@@ -105,3 +105,13 @@ exports.deleteRecord = catchAsyncErrors(async (req, res, next) => {
         message: 'Record is deleted'
     })
 })
+
+// admin
+// Get all records => /api/medpro/admin/records
+exports.getAdminRecords = catchAsyncErrors(async (req, res, next) => {
+    const records = await Record.find();
+    res.status(200).json({
+        success: true,
+        records
+    })
+})

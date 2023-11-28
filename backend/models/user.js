@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
         minlength: [6, 'Your password must be longer than 6 characters'],
         select: false
     },
+    role: {
+        type: String,
+        default: 'user'
+    },
     gender: {
         type: String,
         required: [true, 'Please select gender for this doctor'],

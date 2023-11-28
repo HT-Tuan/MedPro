@@ -119,3 +119,55 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
         message: 'Logged out'
     })
 })
+
+// admin
+// Get all users => /api/medpro/admin/users
+exports.getUsers = catchAsyncErrors(async (req, res, next) => {
+    const users = await User.find();
+    res.status(200).json({
+        success: true,
+        users
+    })
+})
+
+// Get user details => /api/medpro/admin/user/:id
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        return next(new ErrorHandler('User not found', 404));
+    }
+    res.status(200).json({
+        success: true,
+        user
+    })
+})
+
+// Update user => /api/medpro/admin/user/:id
+exports.updateUser = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        return next(new ErrorHandler('User not found', 404));
+    }
+    const result = User.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+    })
+    res.status(200).json({
+        success: true,
+        result
+    })
+})
+
+// Delete user => /api/medpro/admin/user/:id
+exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        return next(new ErrorHandler('User not found', 404));
+    }
+    await User.deleteOne({ _id: req.params.id })
+    res.status(200).json({
+        success: true,
+        message: 'User is deleted'
+    })
+})

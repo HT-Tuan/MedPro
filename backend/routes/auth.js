@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { registerUser, loginUser, forgotPassword, resetPassword, updatePassword, logout } = require('../controllers/authController');
-const { isAuthenticatedUser } = require('../middlewares/auth');
+const { registerUser, loginUser, forgotPassword, resetPassword, updatePassword, logout, getUsers, getUserDetails, updateUser, deleteUser } = require('../controllers/authController');
+const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth');
 
 
 router.route('/register').post(registerUser);
@@ -12,5 +12,11 @@ router.route('/password/reset').put(resetPassword);
 router.route('/logout').get(logout);
 
 router.route('/password/update').put(isAuthenticatedUser, updatePassword);
+// admin
+router.route('/admin/users').get(isAuthenticatedUser, authorizeRoles("admin"), getUsers);
+router.route('/admin/user/:id')
+    .get(isAuthenticatedUser, authorizeRoles("admin"), getUserDetails)
+    .put(isAuthenticatedUser, authorizeRoles("admin"), updateUser)
+    .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteUser);
 
 module.exports = router;

@@ -10,14 +10,14 @@ app.use(cookieParser());
 
 // Import all routes
 const auth = require('./routes/auth');
-const record = require('./routes/record');
-const bookschedule = require('./routes/book');
-// const order = require('./routes/order');
+const user = require('./routes/user');
+const doctor = require('./routes/doctor');
+const ticket = require('./routes/ticket');
 
 app.use('/api/medpro', auth);
-app.use('/api/medpro', record);
-app.use('/api/medpro', bookschedule);
-// app.use('/api/medpro', order);
+app.use('/api/medpro', user);
+app.use('/api/medpro', doctor);
+app.use('/api/medpro', ticket);
 
 //
 // Middleware to handle errors

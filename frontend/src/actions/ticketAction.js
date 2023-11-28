@@ -20,7 +20,7 @@ export const newTicket = (doctor, record, category, area, date, time) => async (
       },
     };
 
-    const { data } = await axios.post(`/api/medpro/doctor/book/${doctor}/${record}/${time}`, { category, area, date }, config);
+    const { data } = await axios.post(`/api/medpro/ticket/book/${doctor}/${record}/${time}`, { category, area, date }, config);
 
     dispatch({
       type: CREATE_TICKET_SUCCESS,

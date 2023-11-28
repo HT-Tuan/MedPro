@@ -92,6 +92,10 @@ const ticketSchema = new mongoose.Schema({
     address: {
         type: String,
         require: [true, 'Please enter your address']
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 })
 
