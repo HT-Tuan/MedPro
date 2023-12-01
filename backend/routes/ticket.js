@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { bookTicket, getTickets, updateTicket, deleteTicket } = require('../controllers/ticketController');
+const { bookTicket, getTickets, updateTicket, deleteTicket, statisticsTickets } = require('../controllers/ticketController');
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth');
 
 
@@ -11,5 +11,6 @@ router.route('/admin/tickets').get(isAuthenticatedUser, authorizeRoles("admin"),
 router.route('/admin/ticket/:id')
   .put(isAuthenticatedUser, authorizeRoles("admin"), updateTicket)
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteTicket);
+router.route('/admin/tickets/statistics').post(isAuthenticatedUser, authorizeRoles("admin"), statisticsTickets);
 
 module.exports = router;

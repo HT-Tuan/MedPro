@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import Search from './Search';
 import { useDispatch } from 'react-redux'
@@ -53,6 +53,9 @@ const Header = ({ isHome, isRecord = false }) => {
             </Link>
 
             <div className="dropdown-menu mt-3" aria-labelledby="dropDownMenuButton">
+              {user && user.role === 'admin' && (
+                <Link className="dropdown-item" to="/admin/dashboard">Bảng điều khiển</Link>
+              )}
               <Link className="dropdown-item" to="/update-password">Đổi mật khẩu</Link>
               <Link className="dropdown-item" to="/me/records">Hồ sơ</Link>
               <Link className="dropdown-item" to="/me/tickets">Phiếu khám</Link>

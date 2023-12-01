@@ -18,6 +18,12 @@ import {
   UPDATE_PASSWORD_REQUEST,
   UPDATE_PASSWORD_SUCCESS,
   UPDATE_PASSWORD_FAIL,
+  ADMIN_GET_ALL_USERS_REQUEST,
+  ADMIN_GET_ALL_USERS_SUCCESS,
+  ADMIN_GET_ALL_USERS_FAIL,
+  ADMIN_DELETE_USER_REQUEST,
+  ADMIN_DELETE_USER_SUCCESS,
+  ADMIN_DELETE_USER_FAIL,
   CLEAR_ERRORS
 } from '../constants/userConstant';
 
@@ -142,6 +148,45 @@ export const updatePassword = (oldPassword, password) => async (dispatch) => {
     });
   } catch (error) {
     dispatch({ type: UPDATE_PASSWORD_FAIL, payload: error.response.data.message });
+  }
+};
+// admin get all users
+export const getAllUsers = (keyword = '', currentPage = 0) => async (dispatch) => {
+  try {
+    currentPage = currentPage + 1;
+    dispatch({ type: ADMIN_GET_ALL_USERS_REQUEST });
+
+    let link = `/api/medpro/admin/users?keyword=${keyword}&page=${currentPage}`;
+
+    const { data } = await axios.get(link);
+
+    dispatch({
+      type: ADMIN_GET_ALL_USERS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ADMIN_GET_ALL_USERS_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+// admin delete user
+export const deleteUser = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: ADMIN_DELETE_USER_REQUEST });
+
+    const { data } = await axios.delete(`/api/medpro/admin/user/${id}`);
+
+    dispatch({
+      type: ADMIN_DELETE_USER_SUCCESS,
+      payload: data.success,
+    });
+  } catch (error) {
+    dispatch({
+      type: ADMIN_DELETE_USER_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
 // Clear Errors

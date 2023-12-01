@@ -1,8 +1,10 @@
 const User = require('../models/user');
 const Record = require('../models/record');
 const Ticket = require('../models/ticket');
+const Doctor = require('../models/doctor');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
+const APIFeatures = require('../utils/apiFeatures');
 const sendEmail = require('../utils/sendEmail');
 const path = require('path');
 const pug = require('pug');
@@ -55,6 +57,7 @@ exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
     // status: 'wait' // value default
     fullname: record.fullname,
     id_patient: record._id,
+    id_user: req.user._id,
     birthday: record.birthday,
     gender: record.gender,
     healthinsurance: record.healthinsurance,
@@ -86,13 +89,26 @@ exports.bookTicket = catchAsyncErrors(async (req, res, next) => {
 // admin
 // Get all tickets => /api/medpro/admin/tickets
 exports.getTickets = catchAsyncErrors(async (req, res, next) => {
-  const tickets = await Ticket.find();
+  const resPerPage = 8;
+
+  const ticketsCount = await Ticket.countDocuments();
+  const apiFeatures1 = new APIFeatures(Ticket.find(), req.query)
+    .search()
+  const tickets1 = await apiFeatures1.query;
+  const filteredTicketsCount = tickets1.length;
+  const apiFeatures2 = new APIFeatures(Ticket.find(), req.query)
+    .search()
+    .pagination(resPerPage);
+  const tickets = await apiFeatures2.query;
   let totalAmount = 0;
   tickets.forEach(ticket => {
     totalAmount += ticket.price;
   })
   res.status(200).json({
     success: true,
+    ticketsCount,
+    resPerPage,
+    filteredTicketsCount,
     totalAmount,
     tickets
   })
@@ -105,14 +121,14 @@ exports.statisticsTickets = catchAsyncErrors(async (req, res, next) => {
   if (begin_date > end_date) {
     return next(new ErrorHandler('Begin date must be less than end date', 400));
   }
-
   const tickets = await Ticket.find({
     createdAt: {
       $gte: begin_date,
       $lte: end_date
     }
   });
-  const statistics = [];
+  const xAxis = [];
+  const data = [];
   let current = begin_date;
   current.setDate(1);
   let end = end_date;
@@ -124,16 +140,15 @@ exports.statisticsTickets = catchAsyncErrors(async (req, res, next) => {
         count++;
       }
     })
-    statistics.push({
-      month: current.getMonth() + 1,
-      year: current.getFullYear(),
-      count
-    })
+    xAxis.push(current.getMonth() + 1)
+    data.push(count);
+
     current.setMonth(current.getMonth() + 1);
   }
   res.status(200).json({
     success: true,
-    statistics
+    xAxis,
+    data
   })
 })
 
@@ -159,6 +174,7 @@ exports.deleteTicket = catchAsyncErrors(async (req, res, next) => {
   if (!ticket) {
     return next(new ErrorHandler('Ticket not found', 404));
   }
+  await User.findOneAndUpdate({ _id: ticket.id_user }, { $pull: { ticket: ticket._id } });
   await Ticket.deleteOne({ _id: ticket._id });
   res.status(200).json({
     success: true

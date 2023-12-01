@@ -1,6 +1,9 @@
 const User = require('../models/user');
+const Record = require('../models/record');
+const Ticket = require('../models/ticket');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
+const APIFeatures = require('../utils/apiFeatures');
 const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
@@ -54,7 +57,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     await user.save({ validateBeforeSave: false });
     const templatePath = path.join(__dirname, '../templates/VerifyCode.pug');
     const compiledFunction = pug.compileFile(templatePath);
-    const message = compiledFunction({user, resetVerifycode});
+    const message = compiledFunction({ user, resetVerifycode });
 
     try {
         await sendEmail({
@@ -123,39 +126,22 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
 // admin
 // Get all users => /api/medpro/admin/users
 exports.getUsers = catchAsyncErrors(async (req, res, next) => {
-    const users = await User.find();
+    const resPerPage = 8;
+    const usersCount = await User.countDocuments({ role: "user" });
+    const apiFeatures1 = new APIFeatures(User.find({ role: "user" }), req.query)
+        .search()
+    const users1 = await apiFeatures1.query;
+    const filteredUsersCount = users1.length;
+    const apiFeatures2 = new APIFeatures(User.find({ role: "user" }), req.query)
+        .search()
+        .pagination(resPerPage);
+    const users = await apiFeatures2.query;
     res.status(200).json({
         success: true,
+        usersCount,
+        resPerPage,
+        filteredUsersCount,
         users
-    })
-})
-
-// Get user details => /api/medpro/admin/user/:id
-exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-        return next(new ErrorHandler('User not found', 404));
-    }
-    res.status(200).json({
-        success: true,
-        user
-    })
-})
-
-// Update user => /api/medpro/admin/user/:id
-exports.updateUser = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-        return next(new ErrorHandler('User not found', 404));
-    }
-    const result = User.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-        useFindAndModify: false
-    })
-    res.status(200).json({
-        success: true,
-        result
     })
 })
 
@@ -165,6 +151,8 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     if (!user) {
         return next(new ErrorHandler('User not found', 404));
     }
+    await Record.deleteMany({_id: {$in: user.record}});
+    await Ticket.deleteMany({_id: {$in: user.ticket}});
     await User.deleteOne({ _id: req.params.id })
     res.status(200).json({
         success: true,

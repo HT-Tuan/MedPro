@@ -3,7 +3,6 @@ const router = express.Router();
 
 const { newRecord, getRecords, getTickets, updateRecord, deleteRecord, getAdminRecords } = require('../controllers/userController');
 const { isAuthenticatedUser, authorizeRoles } = require('../middlewares/auth');
-const { get } = require('mongoose');
 
 router.route('/record/new').post(isAuthenticatedUser, newRecord);
 router.route('/records').get(isAuthenticatedUser, getRecords);

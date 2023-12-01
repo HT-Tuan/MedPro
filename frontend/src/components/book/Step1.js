@@ -58,7 +58,7 @@ const Step1 = ({ onData }) => {
                           <TableCell>{index + 1}</TableCell>
                           <TableCell>{record.fullname}</TableCell>
                           <TableCell>{record.phone}</TableCell>
-                          <TableCell>{new Date(record.birthday).toLocaleDateString('en-GB')}</TableCell>
+                          <TableCell>{new Date(record.birthday).toLocaleDateString('vi-VN')}</TableCell>
                           <TableCell>{record.address}</TableCell>
                           <TableCell>
                             <Button className='mr-2' onClick={() => { onData(record._id) }} variant="contained" color="primary" title="Chọn">Chọn</Button>

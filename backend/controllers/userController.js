@@ -6,7 +6,7 @@ const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 // Create new record => /api/medpro/record/new
 exports.newRecord = catchAsyncErrors(async (req, res, next) => {
     const record = await Record.create(req.body);
-    await User.findOneAndUpdate({ _id: req.user.id }, { $push: { record: record._id } } )
+    await User.findOneAndUpdate({ _id: req.user.id }, { $push: { record: record._id } })
     res.status(201).json({
         success: true,
         record
@@ -21,7 +21,7 @@ exports.getRecords = catchAsyncErrors(async (req, res, next) => {
     const skip = resPerPage * (currentPage - 1);
     //
     const keyword = req.query.keyword || '';
-    
+
     const user = await req.user.populate('record');
     //
     const recordCount = user.record.length;
@@ -99,6 +99,7 @@ exports.deleteRecord = catchAsyncErrors(async (req, res, next) => {
     if (!req.user.record.includes(req.params.id)) {
         return next(new ErrorHandler('You are not authorized to access this record', 401));
     }
+    await User.findOneAndUpdate({ _id: req.user.id }, { $pull: { record: req.params.id } })
     await Record.deleteOne({ _id: req.params.id })
     res.status(200).json({
         success: true,
@@ -107,11 +108,11 @@ exports.deleteRecord = catchAsyncErrors(async (req, res, next) => {
 })
 
 // admin
-// Get all records => /api/medpro/admin/records
+// Getc count all records => /api/medpro/admin/records
 exports.getAdminRecords = catchAsyncErrors(async (req, res, next) => {
-    const records = await Record.find();
+    const recordCount = await Record.countDocuments();
     res.status(200).json({
         success: true,
-        records
+        recordCount
     })
 })

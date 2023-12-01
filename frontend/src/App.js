@@ -10,8 +10,10 @@ import ProtectedRoute from './route/ProtectedRoute';
 import List from './components/records/List';
 import Booking from './components/book/Booking';
 import Ticket from './components/tickets/Ticket';
-import Page404 from './utils/Page404';
-import Page500 from './utils/Page500';
+import Dashboard from './components/admin/Dashboard';
+import TicketAdmin from './components/admin/TicketAdmin';
+import DoctorAdmin from './components/admin/DoctorAdmin';
+import UserAdmin from './components/admin/UserAdmin';
 import { Fragment } from 'react';
 
 function App() {
@@ -25,8 +27,9 @@ function App() {
 }
 function AppContent() {
   const location = useLocation();
-  const isHome = location.pathname === '/' || location.pathname.startsWith('/search');
-  const isRecord = location.pathname.startsWith('/me/records');
+  const isHome = location.pathname === '/' || location.pathname.startsWith('/search') || location.pathname.startsWith('/admin/doctors') || location.pathname.startsWith('/admin/users');
+  const isRecord = location.pathname.startsWith('/me/records') || location.pathname.startsWith('/admin/tickets');
+  
 
   return (
     <Fragment>
@@ -71,10 +74,45 @@ function AppContent() {
               <Ticket />
             </ProtectedRoute>
           } />
-          <Route path='/error' element={<Page500 />} />
-          <Route path='/*' element={<Page404 />} />
         </Routes>
       </div>
+      <Routes>
+        <Route path="/admin/dashboard" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/tickets" element={
+          <ProtectedRoute>
+            <TicketAdmin />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/tickets/:keyword" element={
+          <ProtectedRoute>
+            <TicketAdmin />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/doctors" element={
+          <ProtectedRoute>
+            <DoctorAdmin />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/doctors/:keyword" element={
+          <ProtectedRoute>
+            <DoctorAdmin />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/users" element={
+          <ProtectedRoute>
+            <UserAdmin />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/users/:keyword" element={
+          <ProtectedRoute>
+            <UserAdmin />
+          </ProtectedRoute>
+        } />
+      </Routes>
       <Footer />
     </Fragment>
   );

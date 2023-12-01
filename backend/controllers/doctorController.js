@@ -6,15 +6,15 @@ const APIFeatures = require('../utils/apiFeatures');
 // Get all doctors => /api/medpro/doctors
 exports.getDoctors = catchAsyncErrors(async (req, res, next) => {
     const resPerPage = 6;
-    const doctorCount = await Doctor.countDocuments();
+    const doctorCount = await Doctor.countDocuments({ isDeleted: false });
 
-    const apiFeatures1 = new APIFeatures(Doctor.find(), req.query)
+    const apiFeatures1 = new APIFeatures(Doctor.find({ isDeleted: false }), req.query)
         .search();
 
     const doctorTemp1 = await apiFeatures1.query;
     const filteredDoctorsCount = doctorTemp1.length;
 
-    const apiFeatures2 = new APIFeatures(Doctor.find(), req.query)
+    const apiFeatures2 = new APIFeatures(Doctor.find({ isDeleted: false }), req.query)
         .search()
         .pagination(resPerPage);
     const doctorTemp2 = await apiFeatures2.query;
@@ -26,6 +26,7 @@ exports.getDoctors = catchAsyncErrors(async (req, res, next) => {
         gender: doctor.gender,
         specialist: doctor.specialist,
         schedule: doctor.schedule.length,
+        schedules: doctor.schedule,
         price: doctor.price
     }));
     res.status(200).json({
@@ -72,17 +73,7 @@ exports.newDoctor = catchAsyncErrors(async (req, res, next) => {
         doctor
     })
 })
-// Get doctor details => /api/medpro/admin/doctor/:id
-exports.getDoctor = catchAsyncErrors(async (req, res, next) => {
-    const doctor = await Doctor.findById(req.params.id);
-    if (!doctor) {
-        return next(new ErrorHandler('Doctor not found', 404));
-    }
-    res.status(200).json({
-        success: true,
-        doctor
-    })
-})
+
 // Update doctor details => /api/medpro/admin/doctor/:id
 exports.updateDoctor = catchAsyncErrors(async (req, res, next) => {
     const doctor = await Doctor.findById(req.params.id);
@@ -105,7 +96,8 @@ exports.deleteDoctor = catchAsyncErrors(async (req, res, next) => {
     if (!doctor) {
         return next(new ErrorHandler('Doctor not found', 404));
     }
-    await Doctor.deleteOne({ _id: req.params.id })
+    doctor.isDeleted = true;
+    await doctor.save();
     res.status(200).json({
         success: true,
         message: 'Doctor is deleted'

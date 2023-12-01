@@ -71,6 +71,9 @@ const ticketSchema = new mongoose.Schema({
     id_patient: {
         type: String,
     },
+    id_user: {
+        type: String,
+    },
     birthday: {
         type: Date,
         require: [true, 'Please enter your birthday']

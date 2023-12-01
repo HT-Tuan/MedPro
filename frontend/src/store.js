@@ -2,10 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { authReducer, forgotPasswordReducer, verifyCodeReducer, updatePasswordReducer } from './reducers/userReducer';
-import { doctorReducer, scheduledReducer } from './reducers/doctorReducer';
+import { authReducer, forgotPasswordReducer, verifyCodeReducer, updatePasswordReducer, allUsersReducer, deleteUserReducer } from './reducers/userReducer';
+import { doctorReducer, scheduledReducer, adminCreateDoctorReducer, adminEditDoctorReducer, adminDeleteDoctorReducer } from './reducers/doctorReducer';
 import { recordReducer } from './reducers/recordReducer';
-import { ticketReducer, ticketsReducer } from './reducers/ticketReducer';
+import { ticketReducer, ticketsReducer, adminTicketsReducer, adminStatisticsTicketsReducer, adminUpdateStatusTicketReducer, adminDeleteTicketReducer } from './reducers/ticketReducer';
 const reducer = combineReducers({
   // reducers
   auth: authReducer,
@@ -17,7 +17,17 @@ const reducer = combineReducers({
   doctor: doctorReducer,
   scheduled: scheduledReducer,
   ticket: ticketReducer,
-  tickets: ticketsReducer
+  tickets: ticketsReducer,
+  // admin
+  adminTickets: adminTicketsReducer,
+  adminStatisticsTickets: adminStatisticsTicketsReducer,
+  adminUpdateStatusTicket: adminUpdateStatusTicketReducer,
+  adminDeleteTicket: adminDeleteTicketReducer,
+  adminUsers: allUsersReducer,
+  adminCreateDoctor: adminCreateDoctorReducer,
+  adminEditDoctor: adminEditDoctorReducer,
+  adminDeleteDoctor: adminDeleteDoctorReducer,
+  admindeleteUser: deleteUserReducer
 });
 
 const middleware = [thunk];

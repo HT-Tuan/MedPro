@@ -56,7 +56,11 @@ const doctorSchema = new mongoose.Schema({
             required: [true, 'Please enter clinic for this schedule.'],
             maxLength: [10, 'Your clinic cannot exceed 10 characters']
         }
-    }]
+    }],
+    isDeleted: {
+        type: Boolean,
+        default: false
+    }
 })
 
 module.exports = mongoose.model('Doctor', doctorSchema);
