@@ -4,8 +4,7 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import { Select, InputLabel, FormControl, MenuItem, Grid, Paper, Button, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TablePagination, Dialog, DialogTitle, IconButton, DialogContent, TextField, Stack, RadioGroup, Checkbox, FormControlLabel, Radio } from '@mui/material'
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Grid, Paper, Button, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TablePagination } from '@mui/material'
 import DetailsIcon from '@mui/icons-material/Details';
 import { Link } from 'react-router-dom'
 import Loader from '../layouts/Loader'
@@ -33,7 +32,7 @@ const Ticket = () => {
   };
 
   const dispatch = useDispatch()
-  const { tickets, error, loading, patient_id, resPerPage, filteredTicketsCount } = useSelector(state => state.tickets)
+  const { tickets, error, loading, resPerPage, filteredTicketsCount } = useSelector(state => state.tickets)
   const [currentPage, setCurrentPage] = useState(0)
   const handlePageChange = (event, newPage) => {
     setCurrentPage(newPage);

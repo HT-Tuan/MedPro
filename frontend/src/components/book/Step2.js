@@ -15,7 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { getScheduledDoctors, clearErrors } from '../../actions/doctorAction';
 
-const scheduled1 = [new Date(2023, 10, 1), new Date(2023, 11, 2), new Date(2023, 10, 3)];
 function ServerDay(props) {
   const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
 

@@ -51,7 +51,7 @@ export const newRecord = (fullname, birthday, gender, identificationcard, health
       },
     };
 
-    const response = await axios.post(
+    await axios.post(
       `/api/medpro/record/new`,
       { fullname, birthday, gender, identificationcard, healthinsurance, phone, address },
       config
@@ -75,7 +75,7 @@ export const updateRecord = (id, fullname, birthday, gender, identificationcard,
         "Content-Type": "application/json",
       },
     };
-    const response = await axios.put(
+    await axios.put(
       `/api/medpro/record/${id}`,
       { fullname, birthday, gender, identificationcard, healthinsurance, phone, address },
       config
@@ -88,14 +88,14 @@ export const updateRecord = (id, fullname, birthday, gender, identificationcard,
         status: error.response.status
       },
     });
-    
+
   }
 };
 // Delete record
 export const deleteRecord = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_RECORD_REQUEST });
-    const response = await axios.delete(`/api/medpro/record/${id}`);
+    await axios.delete(`/api/medpro/record/${id}`);
   } catch (error) {
     dispatch({
       type: DELETE_RECORD_FAIL,

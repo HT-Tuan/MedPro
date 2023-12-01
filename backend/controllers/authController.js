@@ -100,7 +100,6 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 //Update password => /api/medpro/password/update
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.user.id).select('+password');
-    console.log(user);
     // Check previous user password
     const isMatched = await user.comparePassword(req.body.oldPassword);
     if (!isMatched) {
@@ -136,11 +135,17 @@ exports.getUsers = catchAsyncErrors(async (req, res, next) => {
         .search()
         .pagination(resPerPage);
     const users = await apiFeatures2.query;
+    const usertemp = await User.find({ role: "user" });
+    let totalAmount = 0;
+    usertemp.forEach(user => {
+        totalAmount += user.record.length;
+    })
     res.status(200).json({
         success: true,
         usersCount,
         resPerPage,
         filteredUsersCount,
+        totalAmount,
         users
     })
 })

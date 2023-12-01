@@ -2,7 +2,7 @@
   {
     "fullname": "Huỳnh Thanh Tuấn",
     "email": "huynhthanhtuan2206@gmail.com",
-    "password": "Thanhtuan@123",
+    "password": "Thanhtuan@20110120",
     "gender": "Nam",
     "birthday": "2002-12-12",
     "record":["655765188a677fa5abb8b6cf", "655765218a677fa5abb8b6d6"]
@@ -14,5 +14,14 @@
     "gender": "Nam",
     "birthday": "2002-12-12",
     "record": ["6560b7e568023b93bf7b9a23"]
+  },
+  {
+    "fullname": "Admin",
+    "email": "medpro@gmail.com",
+    "password": "Thanhtuan@20110120",
+    "gender": "Nam",
+    "birthday": "2002-12-12",
+    "record": [],
+    "role": "admin"
   }
 ]

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Loader from '../layouts/Loader'
-import { Grid, Paper, Button, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TablePagination, Dialog, DialogTitle, IconButton, DialogContent, TextField, Stack, RadioGroup, Checkbox, FormControlLabel, Radio } from '@mui/material'
+import { Grid, Paper, Button, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TablePagination } from '@mui/material'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,7 +19,7 @@ const Step1 = ({ onData }) => {
     { id: 'action', name: 'Hành động' }
   ]
   const dispatch = useDispatch();
-  const { loading, error, records, recordsCount, filteredRecordsCount, resPerPage } = useSelector(state => state.record);
+  const { loading, error, records, recordsCount, resPerPage } = useSelector(state => state.record);
   useEffect(() => {
     if (error) {
       toast.error(error.message, {
